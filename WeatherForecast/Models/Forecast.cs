@@ -10,6 +10,7 @@ namespace WeatherForecast.Models
     {
         public Temperature Main { get; set; }
         public List<Weather> Weather { get; set; }
+        public Wind Wind { get; set; }
         public string dt_txt { get; set; }
     }
 }

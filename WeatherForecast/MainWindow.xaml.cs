@@ -61,7 +61,10 @@ public partial class MainWindow : Window
                     Temp = forecast.Main.Temp,
                     FeelsLike = forecast.Main.FeelsLike,
                     WeatherMain = forecast.Weather[0].Main,
-                    WeatherDescription = forecast.Weather[0].Description
+                    WeatherDescription = forecast.Weather[0].Description,
+                    WindSpeed = forecast.Wind.Speed,
+                    WindDeg = forecast.Wind.Deg,
+                    WindGust = forecast.Wind.Gust
                 };
                 Console.WriteLine($"Temp: {forecast.Main.Temp}, FeelsLike: {forecast.Main.FeelsLike}");
                 dtos.Add(forecastDTO);
