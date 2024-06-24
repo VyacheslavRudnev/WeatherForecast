@@ -20,6 +20,11 @@ public class ForecastQueryBuilder
         return this;
     }
 
+    public ForecastQueryBuilder AddLang(string lang)
+    {
+        _queryParameters.Add("lang", lang);
+        return this;
+    }
     public string Build()
     {
         var queryBuilder = new StringBuilder(_baseApi);

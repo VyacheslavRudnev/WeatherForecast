@@ -32,11 +32,14 @@ public partial class MainWindow : Window
             return;
         }
 
+        string choice = langCb.Text;
+        string lang = choice == "EN" ? "en" : "ua";
         string value = unitsCb.Text;
         string units = value == "Celsius" ? "metric" : "standart";
         string query = new ForecastQueryBuilder()
             .AddCity(cityTb.Text)
             .AddUnits(units)
+            .AddLang(lang)
             .Build();
         
         HttpClient client = new HttpClient();
@@ -50,7 +53,6 @@ public partial class MainWindow : Window
 
         if (objResponse is ForecastResponse forecastResponse)
         {
-            //MessageBox.Show(forecastResponse.List.First().Main.Temp.ToString());
             var dtos = new List<ForecastDTO>();
             foreach (var forecast in forecastResponse.List)
             {
@@ -64,9 +66,9 @@ public partial class MainWindow : Window
                     WeatherDescription = forecast.Weather[0].Description,
                     WindSpeed = forecast.Wind.Speed,
                     WindDeg = forecast.Wind.Deg,
-                    WindGust = forecast.Wind.Gust
+                    
                 };
-                Console.WriteLine($"Temp: {forecast.Main.Temp}, FeelsLike: {forecast.Main.FeelsLike}");
+               
                 dtos.Add(forecastDTO);
             }
             listBox.ItemsSource = dtos;

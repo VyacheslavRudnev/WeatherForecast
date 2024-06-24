@@ -16,6 +16,6 @@ namespace WeatherForecast.Models
         public string WeatherDescription { get; set; }
         public double WindSpeed { get; set; }
         public double WindDeg { get; set; }
-        public double WindGust { get; set; }
+        
     }
 }
